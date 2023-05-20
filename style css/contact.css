@@ -1,0 +1,189 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .myImage{
+    width: 14rem;
+  }
+  
+  @font-face {
+    font-family: yekan;
+    src: url(../vendor/fonts/YekanV3.0/Yekan.woff);
+    font-weight: bold;
+  }
+
+  /* start menu  */
+
+  .menu-bar{
+    height: 35rem;
+    width: 18%;
+    position: relative;
+  }
+  .menu-bar__header{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+  .menu-bar__header-list{
+    padding-right: 3.1rem;
+    font-family: yekan;
+  }
+  .menu-bar__header-item{
+    margin-bottom: 2rem;
+  }
+  
+  .menu-active-style{
+    transition: all 250ms ease-in-out;
+    padding-bottom: 0.3rem;
+    border-bottom:  2.5px solid rgba(14, 14, 226, 0.788);
+    font-size: 1.2rem;
+}
+
+.contact-us-container{
+    z-index: 103;
+    position: absolute;
+    /* display: flex; */
+    /* justify-content: center; */
+    left: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'yekan';
+    text-align: center;
+}
+.contact-us-box-paragraph, .contact-us-box-icons-box{
+  margin-bottom: 1rem;
+}
+.contact-us-box-icons-box{
+  margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.contact-us-box-icons{
+  font-size: 1.4rem;
+}
+.contact-us-container-phones-title{
+  font-size: 1.6rem;
+  margin: 1.5rem 0;
+}
+.contact-us-container-phones-subtitle-box1{
+  margin-bottom: 1.5rem;
+}
+.contact-us-container-phones-box{
+  margin-bottom: 1.3rem;
+}
+.contact-us-container-phones-box a{
+  background-color: navajowhite;
+  padding: 0 1rem;
+}
+.admin-site-box{
+  position: fixed;
+    left: 2rem;
+    bottom: 2rem;
+    font-family: 'yekan';
+    background-color: #face8c;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.7rem;
+}
+.admin-site-text{
+  margin-left: 0.5rem;
+}
+.contact-us-image{
+  width: 68%;
+  margin-top: 8rem;
+}
+.modal-chat-box{
+  position: fixed;
+  left: 2rem;
+  bottom: -2rem;
+  font-family: 'yekan';
+  z-index: 105;
+  height: 30rem;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 0 10px #adb5bd;
+  border-radius: 0.4rem;
+}
+.chat-computer{
+  transition: all 200ms ease-in;
+}
+.modal-chat-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  padding: 1.5rem;
+  background-color: #face8c;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  margin-right: 0;
+}
+.border-style-for-close{
+  padding: 0.4rem;
+  border-bottom: 3px solid #212529;
+  cursor: pointer;
+  width: 1.4rem;
+  border-radius: 0.1rem;
+}
+.chat-box-container{
+  height: 84%;
+  background-color: white;
+  padding: 1rem;
+  width: 20rem;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+}
+.chat-computer{
+  padding: 1rem;
+  box-shadow: 0 0 5px #adb5bd;
+  border-radius: 0.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.chat-user{
+  padding: 1rem;
+  box-shadow: 0 0 5px #adb5bd;
+  background-color: #face8c;
+  border-radius: 0.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+  
+}
+.lc-y3dxrp{
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+}
+.lc-path{
+  fill: rgb(107, 103, 103);
+}
+.user-comment-submit{
+  border-radius: 0.5rem;
+  border: none;
+  background-color: white;
+}
+
+.user-option-for-comment-box{
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 0 10px #adb5bd;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background-color: white;
+}
+.user-comment-input{
+  width: 17rem;
+  outline: none;
+  border: none;
+}

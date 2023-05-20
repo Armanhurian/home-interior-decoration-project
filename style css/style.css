@@ -1,0 +1,261 @@
+html,body{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.myImage{
+  width: 14rem;
+}
+
+@font-face {
+  font-family: yekan;
+  src: url(../vendor/fonts/YekanV3.0/Yekan.woff);
+  font-weight: bold;
+}
+.menu-bar{
+  height: 45rem;
+  width: 18%;
+  position: relative;
+}
+.menu-bar__header{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+.menu-bar__header-list{
+  padding-right: 3.1rem;
+  font-family: yekan;
+}
+.menu-bar__header-item{
+  margin-bottom: 2rem;
+}
+
+.menu-active-style{
+  transition: all 250ms ease-in-out;
+  padding-bottom: 0.3rem;
+  border-bottom:  2.5px solid rgba(14, 14, 226, 0.788);
+  font-size: 1.2rem;
+}
+.main-page__items-of_product-image{
+  width: 100%;
+}
+.main-page__items-of_product{
+  width: 75%;
+  margin: 0 auto;
+}
+.main-page__items-of_product-box{
+  position: absolute;
+  font-family: yekan;
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  width: 36.5%;
+  height: 51.5%;
+  color: black;
+}
+.main-page__items-of_product-box2{
+  position: absolute;
+  font-family: yekan;
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  width: 36.5%;
+  height: 51.5%;
+  color: white;
+}
+.main-page__items-of_product-box1{
+  position: absolute;
+  color: black;
+  font-family: yekan;
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  width: 23.5%;
+  height: 33.5%;
+}
+.main-page__items-of_product-box3{
+  position: absolute;
+  color: rgb(0, 0, 0);
+  font-family: yekan;
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  width: 23.5%;
+  height: 33.5%;
+}
+.main-page__items-of_product-priceText{
+  margin-bottom: 1rem;
+  font-size: 0.94rem;
+}
+.main-page__items-of_product-box-text{
+  font-size: 1.3rem;
+}
+.wooden-dining-table-box:hover{
+  cursor: pointer;
+}
+.wooden-dining-table-box:hover .main-page__items-of_product-image{
+  filter: blur(2px);
+}
+
+.wooden-dining-table-box:hover .main-page__items-of_product-box{
+  animation: Bottom 400ms ease-out;
+  opacity: 1;
+  z-index: 100;
+}
+.steel-base-dining-table-box:hover{
+  cursor: pointer;
+}
+.steel-base-dining-table-box:hover .main-page__items-of_product-image{
+  filter: blur(2px);
+}
+
+.steel-base-dining-table-box:hover .main-page__items-of_product-box2{
+  animation: Bottom 400ms ease-out;
+  opacity: 1;
+  z-index: 100;
+}
+.sofa-box:hover{
+  cursor: pointer;
+}
+.sofa-box:hover .main-page__items-of_product-image{
+  filter: blur(3px);
+}
+
+.sofa-box:hover .main-page__items-of_product-box{
+  animation: Bottom 400ms ease-out;
+  opacity: 1;
+  z-index: 100;
+}
+.abazhor-box:hover{
+  cursor: pointer;
+}
+.abazhor-box:hover .main-page__items-of_product-image{
+  filter: blur(2px);
+}
+
+.abazhor-box:hover .main-page__items-of_product-box2{
+  animation: Bottom 400ms ease-out;
+  opacity: 1;
+  z-index: 100;
+}
+.wicker-pot-box:hover{
+  cursor: pointer;
+}
+.wicker-pot-box:hover .main-page__items-of_product-image{
+  filter: blur(7px);
+}
+
+.wicker-pot-box:hover .main-page__items-of_product-box3{
+  animation: Bottom 400ms ease-out;
+  opacity: 1;
+  z-index: 100;
+}
+.metal-pot-box:hover{
+  cursor: pointer;
+}
+.metal-pot-box:hover .main-page__items-of_product-image{
+  filter: blur(2px);
+}
+
+.metal-pot-box:hover .main-page__items-of_product-box1{
+  animation: Bottom 400ms ease-out;
+  opacity: 1;
+  z-index: 100;
+}
+.wooden-pot-box:hover{
+  cursor: pointer;
+}
+.wooden-pot-box:hover .main-page__items-of_product-image{
+  filter: blur(7px);
+}
+
+.wooden-pot-box:hover .main-page__items-of_product-box3{
+  animation: Bottom 400ms ease-out;
+  opacity: 1;
+  z-index: 100;
+}
+
+
+
+@keyframes Bottom {
+  0%{
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* start footer */
+.myfooter-page{
+  margin-top: 5rem;
+  width: 75%;
+  float: left;
+  margin-left: 2.5rem;
+}
+.myfooter-container-text-contact-title{
+  font-size: 1.4rem;
+}
+.myTitleContainer{
+  font-family: Epilogue,sans-serif;
+  margin-top: 2.5rem;
+}
+.myTitleP{
+  
+  z-index: 103;
+}
+.myTitleP a{
+  font-weight: bold;
+}
+.myfooter-container-first-line{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myfooter-container{
+  box-shadow: 0 0 10px #d3d6d9;
+  padding-left:3rem;
+  padding-right:3rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0.3rem;
+  font-family: 'yekan';
+}
+.myfooter-container-first-line-left{
+  z-index: 103;
+}
+.myfooter-container-first-line-list{
+  display: flex;
+}
+.myfooter-container-first-line-item{
+  margin-left: 1.4rem;
+  font-size: 1.3rem;
+}
+.myfooter-container-text {
+  line-height: 1.5rem;
+}
+.myfooter-container-text-contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.myfooter-container-text-contact-title-list{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1rem;
+}
+.myImage2{
+  width: 18rem;
+}
