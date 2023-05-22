@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="vendor/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="style css/reset.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" /> -->
+    <link rel="stylesheet" href="style css/store.css">
+    <title>Store page</title>
+</head>
+<body>
+    <div class=" w-100 d-flex big-Container">
+      <div class="menu-bar">
+        <div class="menu-bar__header">
+            <img class="myImage" src="image/17.png" alt="" srcset="">
+            <ul class="menu-bar__header-list">
+                <li class="menu-bar__header-item">
+                    <a id="1" href="#" class="menu-bar__header-item-link">صفحه اصلی</a>
+                </li>
+                <li class="menu-bar__header-item">
+                    <a id="2" href="#" class="menu-bar__header-item-link">فروشگاه</a>
+                </li>
+                <li class="menu-bar__header-item">
+                    <a id="3" href="#" class="menu-bar__header-item-link">سبد خرید</a>
+                </li>
+                <li class="menu-bar__header-item">
+                    <a id="4" href="#" class="menu-bar__header-item-link">تایید و پرداخت</a>
+                </li>
+                <li class="menu-bar__header-item">
+                    <a id="5" href="#" class="menu-bar__header-item-link">ثبت نام / ورود</a>
+                </li>
+                <li class="menu-bar__header-item">
+                    <a id="6" href="#" class="menu-bar__header-item-link">درباره ما</a>
+                </li>
+                <li class="menu-bar__header-item">
+                    <a id="7" href="#" class="menu-bar__header-item-link"> ارتباط با ما</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+      <div class="filtered-box">
+        <div class="filtered-box__header">
+            <div class="d-flex">
+                <h1 class="filtered-box-title">فیلتر ها</h1>
+            </div>
+                <div class="d-flex justify-content-between filtered-box__category-box">
+                    <h3 class="filtered-box__category-title">دسته بندی ها</h3>
+                    <i class="fas fa-chevron-down filtered-box__category-icon"></i>
+                </div>
+                <ul class="filtered-box__categories-list">
+                    <li class="filtered-box__categories-item">
+                        <a id="1" href="#" class="filtered-box__categories-list-link"> مبلمان</a>
+                    </li>
+                    <li class="filtered-box__header-item">
+                        <a id="2" href="#" class="filtered-box__categories-list-link">میز ناهارخوری</a>
+                    </li>
+                    <li class="filtered-box__header-item">
+                        <a id="3" href="#" class="filtered-box__categories-list-link">آباژور</a>
+                    </li>
+                    <li class="filtered-box__header-item">
+                        <a id="4" href="#" class="filtered-box__categories-list-link">گلدان</a>
+                    </li>   
+                </ul>
+
+                
+                <div class="d-flex justify-content-between filtered-box__brand-box">
+                    <h3 class="filtered-box__brand-title">برند ها</h3>
+                    <i class="fas fa-chevron-down filtered-box__brand-icon"></i>
+                </div>
+                <ul class="filtered-box__brand-list">
+                    <li class="filtered-box__brand-item">
+                        <a id="1" href="#" class="filtered-box__brand-item-link">مبل ال</a>
+                    </li>
+                    <li class="filtered-box__brand-item">
+                        <a id="2" href="#" class="filtered-box__brand-item-link">مبل چستر</a>
+                    </li>
+                    <li class="filtered-box__brand-item">
+                        <a id="3" href="#" class="filtered-box__brand-item-link">مبل کلاسیک</a>
+                    </li>
+                    <li class="filtered-box__brand-item">
+                        <a id="4" href="#" class="filtered-box__brand-item-link">مبل مدرن</a>
+                    </li>
+                </ul>  
+                
+                <div class="d-flex justify-content-between filtered-box__price-box">
+                    <h3 class="filtered-price-title">محدوده قیمت</h3>
+                    <i class="fas fa-chevron-down filtered-price-icon"></i>
+                </div>
+                <div class="submit-price-container">
+                   <div class="price_range-number-container">
+                     <span class="price_range-title">از</span>
+                     <div class="price_number-from-box">
+                        <input class="price_number-from-input" type="text">
+                     </div>
+                     <span class="price_range-subtitleText">تومان</span>
+                   </div>
+                   <div class="price_range-number-container">
+                     <span class="price_range-title">تا</span>
+                     <div class="price_number-to-box">
+                        <input class="price_number-to-input" type="text" value="500,000,000">
+                     </div>
+                     <span class="price_range-subtitleText">تومان</span>
+                   </div>
+                   <div class="price_range-container">
+                     <input class="price_range--input" type="range" value="0">
+                     <div class="price_range-cheapest-expensive d-flex justify-content-between">
+                        <span class="cheapest-text">ارزانترین</span>
+                        <span class="expensive-text">گرانترین</span>
+                     </div>
+                   </div>
+                </div>
+                <div class="available-product-box d-flex justify-content-between">
+                    <span class="available-product-text">فقط کالاهای موجود در انبار</span>
+                    <label for="#checkbox-available-product">
+                        <input id="checkbox-available-product" type="checkbox">
+                    </label>
+                </div>
+                <div class="discount-product-box d-flex justify-content-between">
+                    <span class="discount-product-text">فقط کالاهای تخفیف خورده</span>
+                    <label for="#checkbox-discount-product">
+                        <input id="checkbox-discount-product" type="checkbox">
+                    </label>
+                </div>
+            </div>
+      </div>
+    </div>
+    <script src="store.js"></script>
+</body>
+</html>
