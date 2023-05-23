@@ -44,3 +44,97 @@ a{
     border-bottom:  2.5px solid rgba(14, 14, 226, 0.788);
     font-size: 1.2rem;
 }
+/* start filtered box */
+
+.filtered-box{
+    z-index: 100;
+    padding: 2rem 1.5rem;
+    border: 2px solid rgba(0, 0, 0, 0.075);
+    border-radius: 0.5rem;
+    background: aliceblue;
+    font-family: yekan;
+    width: 18rem;
+}
+.filtered-box-title{
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.filtered-box__category-box ,.filtered-box__price-box{
+    line-height: 2rem;
+    cursor: pointer;
+    color: #212529;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+.filtered-box__category-icon ,.filtered-price-icon{
+    display: flex;
+    align-items: center;
+    color: #212529;
+    font-size: 0.87rem;
+}
+.filtered-box__categories-list{
+    margin-bottom: 1.5rem;
+}
+.filtered-box__categories-item {
+    margin-bottom: 1.5rem;
+
+}
+.filtered-box__categories-list-link {
+   color: #212529;
+}
+
+.price_range-number-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.price_range-title{
+    color: #212529;
+}
+.price_range-subtitleText{
+    font-size: 0.8rem;
+}
+.price_number-from-input{
+    border: none;
+    background: aliceblue;
+    border-bottom: 2px solid #adb5bd52;
+    outline: none;
+    /* direction: rtl; */
+    direction: ltr;
+    font-weight: bold;
+    font-family: system-ui;
+}
+.price_range--input{
+    width: 100%;
+    
+}
+.price_range-container{
+    margin-bottom: 2rem;
+}
+.cheapest-text,.expensive-text{
+    font-size: 0.85rem;
+    color: #212529;
+}
+.available-product-box,.discount-product-box{
+    line-height: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+.available-product-text,.discount-product-text{
+    cursor: pointer;
+}
+/* #checkbox-available-product{
+    position: relative;
+}
+#checkbox-available-product::after{
+    content: "";
+    position: absolute;
+    background-color: #212529;
+    width: 50px;
+    height: 50px;
+} */
+/* finish filtered box */
