@@ -54,6 +54,8 @@ a{
     background: aliceblue;
     font-family: yekan;
     width: 18rem;
+    height: 41rem;
+    margin-top: 2rem;
 }
 .filtered-box-title{
     font-size: 1.5rem;
@@ -127,14 +129,74 @@ a{
 .available-product-text,.discount-product-text{
     cursor: pointer;
 }
-/* #checkbox-available-product{
-    position: relative;
+.lableForFirstCheckBox,.lableForSecondCheckBox{
+    display: flex;
+    align-items: center;
 }
-#checkbox-available-product::after{
-    content: "";
-    position: absolute;
-    background-color: #212529;
+.myCheckbox1{
+    display: none;
+    visibility: hidden;
+}
+.check1{
     width: 50px;
-    height: 50px;
-} */
+    height: 20px;
+    display: flex;
+    background-color: #dee2e6;
+    box-shadow: 0 0 6px #adb5bd;
+    position: relative;
+    border-radius: 20px;
+    transition:all ease-in 0.2s;
+    cursor: pointer;
+}
+.check1::after{
+    content: '';
+    position: absolute;
+    top: 1.5px;
+    left: 2px;
+    background-color: #8c8e90;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.myCheckbox1:checked ~ .check1::after{
+    transform: translateX(30px);
+    background-color: #0d6efd;
+}
+.myCheckbox1:checked ~ .check1{
+    background-color: rgba(13,110,253,.25);
+}
+.myCheckbox2{
+    display: none;
+    visibility: hidden;
+}
+.check2{
+    width: 50px;
+    height: 20px;
+    display: flex;
+    background-color: #dee2e6;
+    box-shadow: 0 0 6px #adb5bd;
+    position: relative;
+    border-radius: 20px;
+    transition:all ease-in 0.2s;
+    cursor: pointer;
+}
+.check2::after{
+    content: '';
+    position: absolute;
+    top: 1.5px;
+    left: 2px;
+    background-color: #8c8e90;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.myCheckbox2:checked ~ .check2::after{
+    transform: translateX(30px);
+    background-color: #0d6efd;
+}
+.myCheckbox2:checked ~ .check2{
+    background-color: rgba(13,110,253,.25);
+}
 /* finish filtered box */
