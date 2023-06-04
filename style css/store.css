@@ -20,6 +20,11 @@ a{
     src: url(../vendor/fonts/YekanV3.0/Yekan.woff);
     font-weight: bold;
 }
+@font-face {
+    font-family: vazir;
+    src: url(../vendor/fonts/Farsi-Digits-Non-Latin/fonts/ttf/Vazirmatn-RD-FD-NL-Medium.ttf);
+    font-weight: medium;
+}
 .menu-bar{
     height: 45rem;
     width: 18%;
@@ -44,6 +49,12 @@ a{
     border-bottom:  2.5px solid rgba(14, 14, 226, 0.788);
     font-size: 1.2rem;
 }
+.menu-active-style-for-category{
+    transition: all 250ms ease-in-out;
+    padding-bottom: 0.3rem;
+    border-bottom:  2px solid rgba(14, 14, 226, 0.788);
+    margin-right: 0.4rem;
+}
 /* start filtered box */
 
 .filtered-box{
@@ -56,6 +67,8 @@ a{
     width: 18rem;
     height: 41rem;
     margin-top: 2rem;
+    position: sticky;
+    top: 1rem;
 }
 .filtered-box-title{
     font-size: 1.5rem;
@@ -107,8 +120,8 @@ a{
     /* direction: rtl; */
     direction: ltr;
     font-weight: bold;
-    font-family: system-ui;
-}
+    font-family: 'vazir'
+}    
 .price_range--input{
     width: 100%;
     
@@ -200,3 +213,64 @@ a{
     background-color: rgba(13,110,253,.25);
 }
 /* finish filtered box */
+
+.product-container{
+    z-index: 100;
+    font-family: 'yekan';
+    width: 69%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.product-container-link:hover{
+    color: #212529;
+}
+.product-container-link-box-image{
+    width: 100%;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+.product-container-link{
+    box-shadow: 0 0 10px #adb5bd;
+    border-radius: 0.3rem;
+    margin: 1rem 0.7rem;
+    padding: 0;
+}
+.product-container-link-box-title{
+    font-size: revert;
+    text-align: center;
+    margin: 1rem 0;
+}
+.product-container-link-box-paragraph{
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 0.8rem;
+    color: red;
+}
+.product-container-link-box-priceBox{
+    padding: 1rem;
+}
+.product-container-link-box-price-and-discount{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.product-container-link-box-discount{
+    font-family: cursive;
+    padding: 0.3rem;
+    background-color: #ef394e;
+    border-radius: 2rem;
+    color: white;
+}
+.product-container-link-box-discountPrice{
+    font-family: vazir;
+}
+.product-container-link-box-prevPrice{
+    display: flex;
+    justify-content: end;
+    font-family: 'vazir';
+    /* margin-left: 2.2rem; */
+    text-decoration: line-through;
+    text-decoration-color: red;
+    color: #8b8b8b;
+}
