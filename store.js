@@ -11,6 +11,17 @@ let diningTable = $.querySelector('.dining-table')
 let lampshade = $.querySelector('.lampshade')
 let flowerPot = $.querySelector('.flower-pot')
 let productContainerWrapper = $.querySelector('.product-container')
+let filteredBoxCategoryBox = $.querySelector('.filtered-box__category-box')
+let filteredBoxCategoryList = $.querySelector('.filtered-box__categories-list')
+let filteredBoxCategoryIcon = $.querySelector('.filtered-box__category-icon')
+let filteredBoxPriceBox = $.querySelector('.filtered-box__price-box')
+let submitPriceContainer = $.querySelector('.submit-price-container')
+let filteredPriceIcon = $.querySelector('.filtered-price-icon')
+let priceRangeInput = $.querySelector('.price_range--input')
+let priceNumberFromInput = $.querySelector('.price_number-from-input')
+let availableProductText = $.querySelector('.available-product-text')
+let availableCheckBox = $.querySelector('.check1')
+
 
 
 
@@ -35,9 +46,154 @@ menuBarHeaderItemLink.forEach(item =>{
     
 })
 
+filteredBoxCategoryBox.addEventListener('click',()=>{
+
+    if(filteredBoxCategoryIcon.className === 'fas filtered-box__category-icon fa-chevron-down'){
+
+        filteredBoxCategoryList.style.display = 'block'
+        filteredBoxCategoryIcon.classList.remove('fa-chevron-down')
+        filteredBoxCategoryIcon.classList.add('fa-chevron-up')
+        
+    }else{
+        
+        filteredBoxCategoryList.style.display = 'none'
+        filteredBoxCategoryIcon.classList.remove('fa-chevron-up')
+        filteredBoxCategoryIcon.classList.add('fa-chevron-down')
+    }
+    
+})
+
+filteredBoxPriceBox.addEventListener('click',()=>{
+
+    if(filteredPriceIcon.className === 'fas filtered-price-icon fa-chevron-down'){
+    
+        submitPriceContainer.style.display = 'block'
+        filteredPriceIcon.classList.remove('fa-chevron-down')
+        filteredPriceIcon.classList.add('fa-chevron-up')
+        
+    }else{
+        
+        submitPriceContainer.style.display = 'none'
+        filteredPriceIcon.classList.remove('fa-chevron-up')
+        filteredPriceIcon.classList.add('fa-chevron-down')
+    }
+})
+
+let productFuncGenerator = ( enterMyProductArray ) => {
+
+  enterMyProductArray.forEach((product)=>{
+
+    productContainerWrapper.insertAdjacentHTML('beforeend',`
+    <div class="product-container-link col-4">
+      <div class="product-container-link-box">
+         <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
+      </div>
+      <h3 class="product-container-link-box-title">${product.title}</h3>
+      <p class="product-container-link-box-paragraph">${product.discription}</p>
+      <div class="product-container-link-box-priceBox">
+      <div class="product-container-link-box-price-and-discount">
+         <p class="product-container-link-box-discount">${product.discount}</p>
+         <div>
+           <span class="product-container-link-box-discountPrice">${prevCount (product.price , product.discount)}</span>
+           <span class="product-container-link-box-price-subtitle">تومان</span>
+         </div>
+        </div>
+
+        ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
+        <div class = "product--button-Box">
+        <button id="${product.id}" class="product-container-button">اضافه کردن به سبد خرید</button>
+        </div>
+      </div>
+    </div> 
+    
+    `)
+  })
+}
+
+
 filteredBoxCategoriesLink.forEach((item) => {
 
     item.addEventListener('click',(event)=>{
+
+      productContainerWrapper.innerHTML = ''
+
+      let filteredAvailableProduct = apiStoreTotalArray.filter((item)=>{
+        return item.discription !== '' 
+      })
+
+      if(availableProductText.style.borderBottom === ''){
+    
+        apiStoreTotalArray.filter((product) => {
+          
+          if(product.type === event.target.getAttribute('id')){
+            
+            productContainerWrapper.insertAdjacentHTML('beforeend',`
+            <div class="product-container-link col-4">
+              <div class="product-container-link-box">
+                 <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
+              </div>
+              <h3 class="product-container-link-box-title">${product.title}</h3>
+              <p class="product-container-link-box-paragraph">${product.discription}</p>
+              <div class="product-container-link-box-priceBox">
+              <div class="product-container-link-box-price-and-discount">
+                 <p class="product-container-link-box-discount">${product.discount}</p>
+                 <div>
+                   <span class="product-container-link-box-discountPrice">${prevCount (product.price , product.discount)}</span>
+                   <span class="product-container-link-box-price-subtitle">تومان</span>
+                 </div>
+                </div>
+        
+                ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
+                <div class = "product--button-Box">
+                <button id="${product.id}" class="product-container-button">اضافه کردن به سبد خرید</button>
+                </div>
+              </div>
+            </div> 
+            
+            `)
+          }
+        })
+    
+      }else{
+
+        filteredAvailableProduct.filter((product)=>{
+
+          if(product.type === event.target.getAttribute('id')){
+  
+            productContainerWrapper.insertAdjacentHTML('beforeend',`
+            <div class="product-container-link col-4">
+              <div class="product-container-link-box">
+                 <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
+              </div>
+              <h3 class="product-container-link-box-title">${product.title}</h3>
+              <p class="product-container-link-box-paragraph">${product.discription}</p>
+              <div class="product-container-link-box-priceBox">
+              <div class="product-container-link-box-price-and-discount">
+                 <p class="product-container-link-box-discount">${product.discount}</p>
+                 <div>
+                   <span class="product-container-link-box-discountPrice">${prevCount (product.price , product.discount)}</span>
+                   <span class="product-container-link-box-price-subtitle">تومان</span>
+                 </div>
+                </div>
+        
+                ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
+                <div class = "product--button-Box">
+                <button id="${product.id}" class="product-container-button">اضافه کردن به سبد خرید</button>
+                </div>
+              </div>
+            </div> 
+            
+            `)
+          }
+        })
+
+      }
+
+
+
+        priceRangeInput.value = 0
+
+        priceNumberFromInput.value = 0
 
         for (let i = 0; i < filteredBoxCategoriesLink.length; i++) {
 
@@ -88,37 +244,136 @@ let apiStoreTotalArray = [
 
 ]
 
-let apiStoreArray = [
-    {id : 1 ,type : 'furniture' , title : 'مبل ال 7 نفره مدل کینگ استون', imageSrc : 'image/image store/مبل ال 7 نفره مدل kingston.webp', discription : '5 عدد در انبار باقی مانده', price : '25000000' , discount : '20%'},
-    {id : 2 ,type : 'furniture' , title : 'مبل ال چرم مدرن 7 نفره ', imageSrc : 'image/image store/ff13e46487118e3d55c3375c067c1dc7d56c9b2a_1619380184.webp', discription : '3 عدد در انبار باقی مانده', price : '40000000' , discount : '15%'},
-    {id : 3 ,type : 'furniture' , title : 'مبل ال کاربردی جداشونده', imageSrc : 'image/image store/186a1cc2de16476187ded7ba201b0384.w_1004,h_1777,r_k.jpg', discription : '', price : '50000000' , discount : '10%'},
-    {id : 4 ,type : 'furniture' , title : 'مبل چستر فیلد 2017', imageSrc : 'image/image store/13.jpg', discription : '3 عدد در انبار باقی مانده', price : '25000000' , discount : '10%'},
-]
+priceRangeInput.addEventListener('change',(event)=>{
 
-apiStoreArray.forEach( product => {
+  filteredBoxCategoriesLink.forEach(item =>{
 
-    productContainerWrapper.insertAdjacentHTML('beforeend',`
-    <a href="#" class="product-container-link col-4">
-      <div class="product-container-link-box">
-         <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
-      </div>
-      <h3 class="product-container-link-box-title">${product.title}</h3>
-      <p class="product-container-link-box-paragraph">${product.discription}</p>
-      <div class="product-container-link-box-priceBox">
-      <div class="product-container-link-box-price-and-discount">
-         <p class="product-container-link-box-discount">${product.discount}</p>
-         <div>
-           <span class="product-container-link-box-discountPrice">${prevCount (product.price , product.discount)}</span>
-           <span class="product-container-link-box-price-subtitle">تومان</span>
-         </div>
-        </div>
+    item.classList.remove('menu-active-style-for-category')
 
-        ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
-        
-      </div>
-    </a> 
+  })
+
+  let maximumPrice = '40,000,000'
+ 
+  let maximumPriceNum = Number(maximumPrice.split(',').join(''))
+
+  let numPercent = Number(event.target.value)/100
+
+  let priceNumInputRangeValue = Math.floor(numPercent * maximumPriceNum)
+
+
+  priceNumberFromInput.value = priceNumInputRangeValue.toLocaleString()
+
+
+  let filterRangeArray = apiStoreTotalArray.filter(item =>{
+
+    let nextPrice = percentPrice(item.price , item.discount)
+
+    if( nextPrice >= priceNumInputRangeValue ){
+
+      return nextPrice
+
+    }
+
+  })
+
+  let filteredAvailableProduct = apiStoreTotalArray.filter((item)=>{
+    return item.discription !== '' 
+  })
+
+  let filterRangeAvailableArray = filteredAvailableProduct.filter(item =>{
+
+    let nextPrice = percentPrice(item.price , item.discount)
+
+    if( nextPrice >= priceNumInputRangeValue ){
+
+      return nextPrice
+
+    }
+
+  })
+
+  productContainerWrapper.innerHTML = ''
+
+  if( availableProductText.style.borderBottom === '' ){
     
-    `)
+    productFuncGenerator(filterRangeArray)
+    
+  }else{
+    
+    productFuncGenerator(filterRangeAvailableArray)
+  }
+
+
+  
+  
+})
+
+productFuncGenerator(apiStoreTotalArray)
+
+availableProductText.addEventListener('click' , ()=>{
+
+  filteredBoxCategoriesLink.forEach(item =>{
+
+    item.classList.remove('menu-active-style-for-category')
+
+  })
+
+  productContainerWrapper.innerHTML = ''
+
+  priceRangeInput.value = 0
+
+  priceNumberFromInput.value = 0
+
+  let filteredAvailableProduct = apiStoreTotalArray.filter((item)=>{
+    return item.discription !== '' 
+  })
+  
+  if(availableProductText.style.borderBottom === ''){
+
+
+    availableProductText.style.borderBottom = '2px solid #0d6efd'
+
+  productFuncGenerator(filteredAvailableProduct)
+
+  }else{
+    availableProductText.style.borderBottom = ''
+
+    productFuncGenerator(apiStoreTotalArray)
+
+  }
+
+})
+
+availableCheckBox.addEventListener('click' , ()=>{
+  filteredBoxCategoriesLink.forEach(item =>{
+
+    item.classList.remove('menu-active-style-for-category')
+
+  })
+
+  productContainerWrapper.innerHTML = ''
+
+  priceRangeInput.value = 0
+
+  priceNumberFromInput.value = 0
+
+  let filteredAvailableProduct = apiStoreTotalArray.filter((item)=>{
+    return item.discription !== '' 
+  })
+  
+  if(availableProductText.style.borderBottom === ''){
+
+
+    availableProductText.style.borderBottom = '2px solid #0d6efd'
+
+  productFuncGenerator(filteredAvailableProduct)
+
+  }else{
+    availableProductText.style.borderBottom = ''
+
+    productFuncGenerator(apiStoreTotalArray)
+
+  }
 })
 
 function prevCount (myPrice , myDiscount) {
@@ -131,153 +386,14 @@ function prevCount (myPrice , myDiscount) {
  }
   
 }
+function percentPrice (myPrice , myDiscount) {
 
+ if(myDiscount.includes('%')){
+    let percent = Number(myDiscount.slice(0,2))/100
+    return Math.floor( Number(myPrice) - (Number(myPrice) * percent))
+ }else{
+    return Number(myPrice)
+ }
+  
+}
 
-window.addEventListener('scroll',()=>{
-
-    
-    if( window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
-        
-        productContainerWrapper.innerHTML = ""
-        
-        let apiStoreSliceArray = apiStoreTotalArray.slice(0,8)
-
-        apiStoreSliceArray.forEach( product => {
-
-            productContainerWrapper.insertAdjacentHTML('beforeend',`
-            <a href="#" class="product-container-link col-4">
-              <div class="product-container-link-box">
-                 <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
-              </div>
-              <h3 class="product-container-link-box-title">${product.title}</h3>
-              <p class="product-container-link-box-paragraph">${product.discription}</p>
-              <div class="product-container-link-box-priceBox">
-              <div class="product-container-link-box-price-and-discount">
-                 <p class="product-container-link-box-discount">${product.discount}</p>
-                 <div>
-                   <span class="product-container-link-box-discountPrice">${prevCount (product.price , product.discount)}</span>
-                   <span class="product-container-link-box-price-subtitle">تومان</span>
-                 </div>
-                </div>
-        
-                ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
-                
-              </div>
-            </a> 
-            
-            `)
-        })
-        
-    }
-})
-window.addEventListener('scroll',()=>{
-
-    
-    if( window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
-        
-       // productContainerWrapper.innerHTML = ""
-        
-        let apiStoreSliceArray1 = apiStoreTotalArray.slice(8,16)
-
-        apiStoreSliceArray1.forEach( product => {
-
-            productContainerWrapper.insertAdjacentHTML('beforeend',`
-            <a href="#" class="product-container-link col-4">
-              <div class="product-container-link-box">
-                 <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
-              </div>
-              <h3 class="product-container-link-box-title">${product.title}</h3>
-              <p class="product-container-link-box-paragraph">${product.discription}</p>
-              <div class="product-container-link-box-priceBox">
-              <div class="product-container-link-box-price-and-discount">
-                 <p class="product-container-link-box-discount">${product.discount}</p>
-                 <div>
-                   <span class="product-container-link-box-discountPrice">${prevCount (product.price , product.discount)}</span>
-                   <span class="product-container-link-box-price-subtitle">تومان</span>
-                 </div>
-                </div>
-        
-                ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
-                
-              </div>
-            </a> 
-            
-            `)
-        })
-        
-    }
-})
-window.addEventListener('scroll',()=>{
-
-    
-    if( window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
-        
-       // productContainerWrapper.innerHTML = ""
-        
-        let apiStoreSliceArray2 = apiStoreTotalArray.slice(16,24)
-
-        apiStoreSliceArray2.forEach( product => {
-
-            productContainerWrapper.insertAdjacentHTML('beforeend',`
-            <a href="#" class="product-container-link col-4">
-              <div class="product-container-link-box">
-                 <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
-              </div>
-              <h3 class="product-container-link-box-title">${product.title}</h3>
-              <p class="product-container-link-box-paragraph">${product.discription}</p>
-              <div class="product-container-link-box-priceBox">
-              <div class="product-container-link-box-price-and-discount">
-                 <p class="product-container-link-box-discount">${product.discount}</p>
-                 <div>
-                   <span class="product-container-link-box-discountPrice">${prevCount (product.price , product.discount)}</span>
-                   <span class="product-container-link-box-price-subtitle">تومان</span>
-                 </div>
-                </div>
-        
-                ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
-                
-              </div>
-            </a> 
-            
-            `)
-        })
-        
-    }
-})
-window.addEventListener('scroll',()=>{
-
-    
-    if( window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
-        
-       // productContainerWrapper.innerHTML = ""
-        
-        let apiStoreSliceArray3 = apiStoreTotalArray.slice(24,30)
-
-        apiStoreSliceArray3.forEach( product => {
-
-            productContainerWrapper.insertAdjacentHTML('beforeend',`
-            <a href="#" class="product-container-link col-4">
-              <div class="product-container-link-box">
-                 <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
-              </div>
-              <h3 class="product-container-link-box-title">${product.title}</h3>
-              <p class="product-container-link-box-paragraph">${product.discription}</p>
-              <div class="product-container-link-box-priceBox">
-              <div class="product-container-link-box-price-and-discount">
-                 <p class="product-container-link-box-discount">${product.discount}</p>
-                 <div>
-                   <span class="product-container-link-box-discountPrice">${prevCount (product.price , product.discount)}</span>
-                   <span class="product-container-link-box-price-subtitle">تومان</span>
-                 </div>
-                </div>
-        
-                ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
-                
-              </div>
-            </a> 
-            
-            `)
-        })
-        
-    }
-})

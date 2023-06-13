@@ -64,7 +64,7 @@ a{
     border-radius: 0.5rem;
     background: aliceblue;
     font-family: yekan;
-    width: 18rem;
+    width: 21rem;
     height: 41rem;
     margin-top: 2rem;
     position: sticky;
@@ -90,6 +90,10 @@ a{
 }
 .filtered-box__categories-list{
     margin-bottom: 1.5rem;
+    display: none;
+}
+.submit-price-container{
+    display: none;
 }
 .filtered-box__categories-item {
     margin-bottom: 1.5rem;
@@ -164,7 +168,7 @@ a{
 .check1::after{
     content: '';
     position: absolute;
-    top: 1.5px;
+    top: 2px;
     left: 2px;
     background-color: #8c8e90;
     width: 16px;
@@ -197,7 +201,7 @@ a{
 .check2::after{
     content: '';
     position: absolute;
-    top: 1.5px;
+    top: 2px;
     left: 2px;
     background-color: #8c8e90;
     width: 16px;
@@ -236,6 +240,7 @@ a{
     margin: 1rem 0.7rem;
     padding: 0;
     transition: 300ms all ease-in;
+    position: relative;
 }
 .product-container-link:hover{
     transform: scale(1.05);
@@ -278,4 +283,20 @@ a{
     text-decoration: line-through;
     text-decoration-color: red;
     color: #8b8b8b;
+    margin-bottom: 2.5rem;
+}
+.product--button-Box{
+    margin-top: 2rem;
+}
+.product-container-button{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+    padding: 0.5rem;
+    background-color: #198754;
+    border: none;
+    color: white;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
 }
