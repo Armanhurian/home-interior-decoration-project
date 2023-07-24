@@ -21,30 +21,28 @@ let priceRangeInput = $.querySelector('.price_range--input')
 let priceNumberFromInput = $.querySelector('.price_number-from-input')
 let availableProductText = $.querySelector('.available-product-text')
 let availableCheckBox = $.querySelector('.check1')
-
-
-
-
+let discountProductText = $.querySelector('.discount-product-text')
+let discountCheckBox = $.querySelector('.check2')
+let shoppingCartDetailsSubmitLeft = $.querySelector('.shopping-cart-details-submit-left')
+let shoppingCartContainerWrapper = $.querySelector('.shopping-cart-details-submit-left')
+let shoppingCartDetailsRightLinkSpanText = $.querySelector('.shopping-cart-details-right-link-span-text')
 
 menuBarHeaderItemLink.forEach(item =>{
     
     
     
-    item.addEventListener('click',(event)=>{
+  for (let index = 0; index < menuBarHeaderItemLink.length; index++) {
+       
+       if(menuBarHeaderItemLink[index].href.includes('store')){
+           menuBarHeaderItemLink[index].classList.add('menu-active-style')
+           
+       }
+  }
+
    
-        for (let index = 0; index < menuBarHeaderItemLink.length; index++) {
-            
-            if(menuBarHeaderItemLink[index].className === 'menu-bar__header-item-link menu-active-style'){
-                menuBarHeaderItemLink[index].classList.remove('menu-active-style')
-                
-            }
-        }
-        
-        event.target.classList.add('menu-active-style')
-        
-    })
-    
 })
+
+
 
 filteredBoxCategoryBox.addEventListener('click',()=>{
 
@@ -79,6 +77,7 @@ filteredBoxPriceBox.addEventListener('click',()=>{
     }
 })
 
+
 let productFuncGenerator = ( enterMyProductArray ) => {
 
   enterMyProductArray.forEach((product)=>{
@@ -101,35 +100,113 @@ let productFuncGenerator = ( enterMyProductArray ) => {
 
         ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
         <div class = "product--button-Box">
-        <button id="${product.id}" class="product-container-button">اضافه کردن به سبد خرید</button>
+        <button id="${product.id}" onclick = "addShopClickHandler(${product.id},event)" class="product-container-button">اضافه کردن به سبد خرید</button>
         </div>
       </div>
     </div> 
     
     `)
   })
+  
 }
+
+let count = 0
+
+
+let shoppBasketListArray = []
+
+function addShopClickHandler(productID,event){
+  
+  shoppingCartContainerWrapper.innerHTML = ''
+  
+  count++
+
+  //console.log(count);
+
+  shoppingCartDetailsRightLinkSpanText.style.opacity = 1
+  shoppingCartDetailsRightLinkSpanText.style.visibility = 'visible'
+  shoppingCartDetailsRightLinkSpanText.innerHTML = count
+  
+
+  
+  let shoppingBasketPrice = event.target.parentElement.parentElement.children[0].children[1].children[0].innerHTML
+  let shoppingBasketImageSrc = event.target.parentElement.parentElement.parentElement.children[0].children[0].getAttribute('src')
+  let shoppingBasketTitle = event.target.parentElement.parentElement.parentElement.children[1].innerHTML
+  
+
+      shoppingCartContainerWrapper.insertAdjacentHTML('beforeend',`
+     
+      <img class="shopping-cart-details-submit-left-image" src="${shoppingBasketImageSrc}" alt="" srcset="">
+      <span>
+          <h1 class="shopping-cart-details-submit-left-title"> محصول شما به سبد خرید اضافه شد</h1>
+          <i class="fa-sharp fa-solid fa-circle-check shopping-cart-details-submit-left-icon"></i>
+          <h3 class="shopping-cart-details-submit-left-subtitle">${shoppingBasketTitle}</h3>
+          <span  class="shopping-cart-details-submit-left-price"><span class="shopping-cart-details-submit-left-priceText">${shoppingBasketPrice}</span>تومان</span>
+      </span>
+      
+      `)
+
+      let shoppingProduct = apiStoreTotalArray[productID-1]
+      
+      shoppBasketListArray.push(shoppingProduct)
+
+      console.log(shoppBasketListArray);
+
+      
+
+  
+  if(shoppingCartDetailsSubmitLeft.style.opacity !== '1'){
+    
+    shoppingCartDetailsSubmitLeft.style.opacity = '1'
+    shoppingCartDetailsSubmitLeft.style.visibility = 'visible'
+    productContainerWrapper.style.zIndex = '-1'
+    
+    setTimeout(()=>{
+      shoppingCartDetailsSubmitLeft.style.opacity = '0'
+      shoppingCartDetailsSubmitLeft.style.visibility = 'hidden'
+      productContainerWrapper.style.zIndex = '100'
+  
+    },3000)
+
+  }else{
+    
+    shoppingCartDetailsSubmitLeft.style.opacity = '0'
+    shoppingCartDetailsSubmitLeft.style.visibility = 'hidden'
+  }
+    
+
+  localStorage.setItem('key' , JSON.stringify(shoppBasketListArray))
+  let getItemLocal = JSON.parse(localStorage.getItem('key'))
+  console.log(getItemLocal);
+
+
+}
+
+
 
 
 filteredBoxCategoriesLink.forEach((item) => {
 
     item.addEventListener('click',(event)=>{
 
+
       productContainerWrapper.innerHTML = ''
+
 
       let filteredAvailableProduct = apiStoreTotalArray.filter((item)=>{
         return item.discription !== '' 
       })
 
-      if(availableProductText.style.borderBottom === ''){
+      if(availableProductText.style.borderBottom === ''){ 
     
         apiStoreTotalArray.filter((product) => {
           
           if(product.type === event.target.getAttribute('id')){
             
+
             productContainerWrapper.insertAdjacentHTML('beforeend',`
             <div class="product-container-link col-4">
-              <div class="product-container-link-box">
+            <div class="product-container-link-box">
                  <img class="product-container-link-box-image" src="${product.imageSrc}" alt="" srcset="">
               </div>
               <h3 class="product-container-link-box-title">${product.title}</h3>
@@ -145,7 +222,7 @@ filteredBoxCategoriesLink.forEach((item) => {
         
                 ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
                 <div class = "product--button-Box">
-                <button id="${product.id}" class="product-container-button">اضافه کردن به سبد خرید</button>
+                <button id="${product.id}" onclick = "addShopClickHandler(${product.id},event)" class="product-container-button">اضافه کردن به سبد خرید</button>
                 </div>
               </div>
             </div> 
@@ -178,7 +255,7 @@ filteredBoxCategoriesLink.forEach((item) => {
         
                 ${product.discount.includes('%') ? `<p class="product-container-link-box-prevPrice">${product.price} تومان </p>` : `<p></p>`}
                 <div class = "product--button-Box">
-                <button id="${product.id}" class="product-container-button">اضافه کردن به سبد خرید</button>
+                <button id="${product.id}" onclick = "addShopClickHandler(${product.id},event)" class="product-container-button">اضافه کردن به سبد خرید</button>
                 </div>
               </div>
             </div> 
@@ -188,7 +265,6 @@ filteredBoxCategoriesLink.forEach((item) => {
         })
 
       }
-
 
 
         priceRangeInput.value = 0
@@ -207,6 +283,7 @@ filteredBoxCategoriesLink.forEach((item) => {
        event.target.classList.add('menu-active-style-for-category')
 
     })
+  
 })
 
 let apiStoreTotalArray = [
@@ -244,6 +321,7 @@ let apiStoreTotalArray = [
 
 ]
 
+
 priceRangeInput.addEventListener('change',(event)=>{
 
   filteredBoxCategoriesLink.forEach(item =>{
@@ -276,9 +354,11 @@ priceRangeInput.addEventListener('change',(event)=>{
 
   })
 
+  
   let filteredAvailableProduct = apiStoreTotalArray.filter((item)=>{
     return item.discription !== '' 
   })
+  
 
   let filterRangeAvailableArray = filteredAvailableProduct.filter(item =>{
 
@@ -292,19 +372,31 @@ priceRangeInput.addEventListener('change',(event)=>{
 
   })
 
+
+
+
   productContainerWrapper.innerHTML = ''
 
   if( availableProductText.style.borderBottom === '' ){
-    
-    productFuncGenerator(filterRangeArray)
+
+
+    createLoadingGife(filterRangeArray)
     
   }else{
-    
-    productFuncGenerator(filterRangeAvailableArray)
+  
+    createLoadingGife(filterRangeAvailableArray)
   }
 
 
-  
+
+  if(filterRangeAvailableArray.length === 0 && filterRangeArray.length === 3 && availableProductText.style.borderBottom === '2px solid rgb(13, 110, 253)'){
+
+    productContainerWrapper.innerHTML =
+      `
+      <div style ="    height: 2rem;
+      margin: auto;" class=" alert alert-danger d-flex justify-content-center align-items-center">موردی با این مشخصات یافت نشد !!</div>
+      `
+  }
   
 })
 
@@ -333,12 +425,14 @@ availableProductText.addEventListener('click' , ()=>{
 
     availableProductText.style.borderBottom = '2px solid #0d6efd'
 
-  productFuncGenerator(filteredAvailableProduct)
 
-  }else{
-    availableProductText.style.borderBottom = ''
+    createLoadingGife(filteredAvailableProduct)
+  
+}else{
+  availableProductText.style.borderBottom = ''
+  
+    createLoadingGife(apiStoreTotalArray)
 
-    productFuncGenerator(apiStoreTotalArray)
 
   }
 
@@ -366,12 +460,12 @@ availableCheckBox.addEventListener('click' , ()=>{
 
     availableProductText.style.borderBottom = '2px solid #0d6efd'
 
-  productFuncGenerator(filteredAvailableProduct)
-
+   createLoadingGife(filteredAvailableProduct)
+   
   }else{
     availableProductText.style.borderBottom = ''
-
-    productFuncGenerator(apiStoreTotalArray)
+    
+    createLoadingGife(apiStoreTotalArray)
 
   }
 })
@@ -396,4 +490,66 @@ function percentPrice (myPrice , myDiscount) {
  }
   
 }
+
+let createLoadingGife = (enterMyFilterLoadArray) =>{
+
+
+  productContainerWrapper.innerHTML = `
+  <div class = "d-flex justify-content-center align-items-center">
+  <img src="image/image store/gambar-gif-loading-8.gif" alt="" srcset="">
+  </div>
+  `
+  
+  setTimeout(function(){
+    productContainerWrapper.innerHTML = ''
+    productFuncGenerator(enterMyFilterLoadArray)
+  },2000)
+
+}
+
+//  responsive codes
+
+let menuBarHeaderList = document.querySelector('.menu-bar__header-list')
+let menuIconResponse = document.querySelector('.menu-icon-response')
+let filteredBox = document.querySelector('.filtered-box')
+let xMarkIcon = document.querySelector('.xmark-icon')
+let filteringCartDetailsRightLink = document.querySelector('.filtering-cart-details-right-link')
+
+
+menuIconResponse.addEventListener('click',()=>{
+
+
+    if(menuBarHeaderList.className==='menu-bar__header-list'){
+
+        menuBarHeaderList.classList.add('activeResponsiveMenu')
+        
+    }else{
+        
+        menuBarHeaderList.classList.remove('activeResponsiveMenu')
+        
+        
+    }
+
+    
+})
+
+
+filteringCartDetailsRightLink.addEventListener('click',()=>{
+
+  
+  if(filteredBox.style.display  !== 'block'){
+    
+    
+    filteredBox.style.display  = 'block'
+    filteredBox.style.zIndex  = '5'
+    filteredBox.style.width  = '100%'
+    filteredBox.style.height  = '100%'
+  }else{
+    filteredBox.style.display  = 'none'
+  }
+
+  xMarkIcon.addEventListener('click',()=>{
+    filteredBox.style.display  = 'none'
+  })
+})
 

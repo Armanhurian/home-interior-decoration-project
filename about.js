@@ -14,9 +14,8 @@ menuBarHeaderItemLink.forEach(item =>{
     
         for (let index = 0; index < menuBarHeaderItemLink.length; index++) {
  
-            console.log(menuBarHeaderItemLink[index].href.includes('index'));
              
-             if(menuBarHeaderItemLink[index].href.includes('index')){
+             if(menuBarHeaderItemLink[index].href.includes('about')){
                  menuBarHeaderItemLink[index].classList.add('menu-active-style')
                  
              }
@@ -24,27 +23,24 @@ menuBarHeaderItemLink.forEach(item =>{
     
          
  })
-       
 
-//  responsive codes
-
-let menuBarHeaderList = document.querySelector('.menu-bar__header-list')
-let menuIconResponse = document.querySelector('.menu-icon-response')
-
-
-menuIconResponse.addEventListener('click',()=>{
-
-
-    if(menuBarHeaderList.className==='menu-bar__header-list'){
-
-        menuBarHeaderList.classList.add('activeResponsiveMenu')
-        
-    }else{
-        
-        menuBarHeaderList.classList.remove('activeResponsiveMenu')
-        
-        
-    }
-
-    
-})
+ let menuBarHeaderList = document.querySelector('.menu-bar__header-list')
+ let menuIconResponse = document.querySelector('.menu-icon-response')
+ 
+ 
+ menuIconResponse.addEventListener('click',()=>{
+ 
+ 
+     if(menuBarHeaderList.className==='menu-bar__header-list'){
+ 
+         menuBarHeaderList.classList.add('activeResponsiveMenu')
+         
+     }else{
+         
+         menuBarHeaderList.classList.remove('activeResponsiveMenu')
+         
+         
+     }
+ 
+     
+ }) 

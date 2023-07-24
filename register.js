@@ -12,21 +12,16 @@ menuBarHeaderItemLink.forEach(item =>{
     
     
     
-    item.addEventListener('click',(event)=>{
-   
-        for (let index = 0; index < menuBarHeaderItemLink.length; index++) {
-            
-            if(menuBarHeaderItemLink[index].className === 'menu-bar__header-item-link menu-active-style'){
-                menuBarHeaderItemLink[index].classList.remove('menu-active-style')
-                
-            }
-        }
-        
-        event.target.classList.add('menu-active-style')
-        
-    })
-    
-})
+    for (let index = 0; index < menuBarHeaderItemLink.length; index++) {
+         
+         if(menuBarHeaderItemLink[index].href.includes('login')){
+             menuBarHeaderItemLink[index].classList.add('menu-active-style')
+             
+         }
+    }
+  
+     
+  })
 
 
 
@@ -120,7 +115,7 @@ function clickSubmitRegisterHandler (){
             icon : 'success',
             title: 'تبریک میگم',
             text: 'ثبت نام شما با موفقیت انجام شد',
-            button : 'متوجه شدم'
+            button : 'ورود به درگاه پرداخت'
         }).then((res)=>{
             console.log(res);
         })
@@ -137,6 +132,27 @@ function clickSubmitRegisterHandler (){
         
     }
 }
+
+let menuBarHeaderList = document.querySelector('.menu-bar__header-list')
+let menuIconResponse = document.querySelector('.menu-icon-response')
+
+
+menuIconResponse.addEventListener('click',()=>{
+
+
+    if(menuBarHeaderList.className==='menu-bar__header-list'){
+
+        menuBarHeaderList.classList.add('activeResponsiveMenu')
+        
+    }else{
+        
+        menuBarHeaderList.classList.remove('activeResponsiveMenu')
+        
+        
+    }
+
+    
+})
 
 // create eyes Icon For input
 

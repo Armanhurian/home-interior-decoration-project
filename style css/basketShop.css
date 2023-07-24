@@ -1,0 +1,303 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+  
+a{
+    text-decoration: none;
+    color: black;
+}
+  
+.myImage{
+    width: 8rem;
+    margin: 2rem;
+}
+  
+@font-face {
+    font-family: yekan;
+    src: url(../vendor/fonts/YekanV3.0/Yekan.woff);
+    font-weight: bold;
+}
+@font-face {
+    font-family: vazir;
+    src: url(../vendor/fonts/Farsi-Digits-Non-Latin/fonts/ttf/Vazirmatn-RD-FD-NL-Medium.ttf);
+    font-weight: medium;
+}
+.menu-bar{
+    height: 45rem;
+    width: 18%;
+    position: relative;
+}
+.menu-bar__header{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+.menu-bar__header-list{
+    padding-right: 3.1rem;
+    font-family: yekan;
+}
+.menu-bar__header-item{
+    margin-bottom: 2rem;
+}
+  
+.menu-active-style{
+    transition: all 250ms ease-in-out;
+    padding-bottom: 0.3rem;
+    border-bottom:  2.5px solid rgba(14, 14, 226, 0.788);
+    font-size: 1.2rem;
+}
+.menu-active-style-for-category{
+    transition: all 250ms ease-in-out;
+    padding-bottom: 0.3rem;
+    border-bottom:  2px solid rgba(14, 14, 226, 0.788);
+    margin-right: 0.4rem;
+}
+
+/* finish menu style */
+.basketShopping-container{
+    margin: 0 auto;
+    z-index: 103;
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.product-description-rightBox-count-text, .product-description-rightBox-image-text,.product-description-rightBox-title-text,.product-description-rightBox-price-text, .product-description-rightBox-delete-text{
+    padding: 2rem 1rem;
+}
+.basketShopping-product-description-rightBox{
+    font-family: yekan;
+    margin-top : 4rem;
+    height: 50%;
+    overflow-y: scroll;
+    box-shadow: 0 0 6px #adb5bd;
+    border-radius: 0.4rem;
+}
+tr{
+    border-bottom: 2px solid #adb5bd;
+}
+.tableShoppingListWrapper{
+    position: relative;
+}
+.product-description-rightBox-title{
+    font-family: monospace;
+    font-weight: bold;
+    padding: 1rem;
+    line-height: 1.5rem;
+}
+
+.product-description-rightBox-image{
+    width: 9rem;
+    margin-top: 1rem;
+
+}
+.product-description-rightBox-price{
+    font-family: monospace;
+    font-weight: bold;
+    padding: 1rem ;
+    line-height: 1.5rem;
+}
+
+.product-description-rightBox-icon{
+    color: crimson;
+}
+thead{
+    background-color: rgb(13 110 253 / 17%);
+    position: sticky;
+    top: 0;
+    background-color: #6592d3;
+    color: white;
+    box-shadow: 0 0 8px #4b4a4a;
+}
+th:not(.product-description-rightBox-delete-text){
+    border-left: 2px solid #0d6dfd38;
+}
+tbody{
+    box-shadow: 0 0 4px #dee2e6;
+}
+.basketShopping-product-pay-leftBox{
+    font-family: monospace;
+    font-weight: bold;
+    padding: 2rem;
+    height: 21rem;
+    margin-top: 4rem;
+    box-shadow: 0 0 10px #adb5bd;
+    border-radius: 0.4rem;
+}
+.basketShopping-product-pay-leftBox-titleBox{
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+}
+.basketShopping-product-pay-leftBox-bonBox{
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.1rem;
+
+}
+.basketShopping-product-pay-leftBox-priceBox{
+     margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.1rem;
+}   
+.basketShopping-product-pay-leftBox-deliverBox{
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+.basketShopping-product-pay-leftBox-totalPriceBox{
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+.pay-leftBox-btn{
+    border-radius: 0.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    background-color: #00cf6f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+.menu-icon-response{
+    display: none;
+  }
+  .big-Container{
+    display: flex;
+    width: 100%;
+  }
+
+/* responsive style website */
+@media screen and (max-width : 1022px){
+    .basketShopping-container {
+        margin: 0 auto;
+        z-index: 103;
+        display: block;
+        width: 50%;
+        justify-content: space-between;
+    }
+    
+    .basketShopping-product-description-rightBox {
+        font-family: yekan;
+        margin-top: 1rem;
+        
+    }
+    .basketShopping-product-pay-leftBox {
+        font-family: monospace;
+        font-weight: bold;
+        padding: 2rem;
+        height: 21rem;
+        margin-top: 1rem;
+        box-shadow: 0 0 10px #adb5bd;
+        border-radius: 0.4rem;
+    }
+}
+@media screen and (max-width : 830px){
+    .product-description-rightBox-image {
+        width: 6rem;
+        margin-top: 0rem;
+    }
+}
+@media screen and (max-width : 775px){
+
+    .big-Container{
+      display: block ;
+      /* margin-top: 9rem; */
+    }
+    .menu-bar{
+      width: 100%;
+      position: relative;
+      height: 7rem;
+      background-color: white;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 0 10px #adb5bd;
+      z-index: 2;
+    }
+  
+    .menu-bar__header {
+      position: sticky;
+      display: flex;
+      justify-content: space-between;
+      z-index: 2;
+  }
+  .myImage {
+    width: 7rem;
+      margin: 2rem;
+      height: 4rem;
+  }
+  .menu-icon-response{
+    display: flex;
+    font-size: 2.2rem;
+    margin: 1.5rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+  .menu-bar__header-list {
+    padding-right: 3.1rem;
+    font-family: yekan;
+    display: none;
+  }
+  
+  .menu-icon-response:active{
+    background-color: rgba(76, 99, 217, 0.484);
+    border-radius: 0.4rem;
+    color: white;
+  }
+  .menu-icon-response:active .menu-bar__header-list{
+    display: block;
+    position: absolute;
+  }
+  .activeResponsiveMenu{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 6rem;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 10px #625757;
+    border-radius: 0.5rem;
+  }
+
+} 
+
+@media screen and (max-width : 733px){
+    .basketShopping-container {
+        margin: 0 auto;
+        z-index: 103;
+        display: block;
+        width: 63%;
+        justify-content: space-between;
+        /* margin: auto; */
+    }
+}
+@media screen and (max-width : 580px){
+    .basketShopping-container {
+        margin: 0 auto;
+        z-index: 103;
+        display: block;
+        width: 80%;
+        justify-content: space-between;
+        /* margin: auto; */
+    }
+}
+
+@media screen and (max-width : 465px){
+    .basketShopping-container {
+        margin: 0 auto;
+        z-index: 103;
+        display: block;
+        width: 99%;
+        justify-content: space-between;
+        /* margin: auto; */
+    }
+}

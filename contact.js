@@ -22,21 +22,16 @@ menuBarHeaderItemLink.forEach(item =>{
     
     
     
-    item.addEventListener('click',(event)=>{
-   
-        for (let index = 0; index < menuBarHeaderItemLink.length; index++) {
-            
-            if(menuBarHeaderItemLink[index].className === 'menu-bar__header-item-link menu-active-style'){
-                menuBarHeaderItemLink[index].classList.remove('menu-active-style')
-                
-            }
-        }
-        
-        event.target.classList.add('menu-active-style')
-        
-    })
-    
-})
+    for (let index = 0; index < menuBarHeaderItemLink.length; index++) {
+         
+         if(menuBarHeaderItemLink[index].href.includes('contact')){
+             menuBarHeaderItemLink[index].classList.add('menu-active-style')
+             
+         }
+    }
+  
+     
+  })
 
 adminSiteBox.addEventListener('click',()=>{
 
@@ -137,3 +132,23 @@ let randomAdmin = Math.floor(Math.random()*adminNamesArray.length)
 
 adminNames.innerHTML = adminNamesArray[randomAdmin]
 
+let menuBarHeaderList = document.querySelector('.menu-bar__header-list')
+let menuIconResponse = document.querySelector('.menu-icon-response')
+
+
+menuIconResponse.addEventListener('click',()=>{
+
+
+    if(menuBarHeaderList.className==='menu-bar__header-list'){
+
+        menuBarHeaderList.classList.add('activeResponsiveMenu')
+        
+    }else{
+        
+        menuBarHeaderList.classList.remove('activeResponsiveMenu')
+        
+        
+    }
+
+    
+})

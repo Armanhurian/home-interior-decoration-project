@@ -12,7 +12,8 @@ html,body{
   }
   
   .myImage{
-    width: 14rem;
+    width: 8rem;
+    margin: 2rem;
   }
   
   @font-face {
@@ -160,3 +161,105 @@ html,body{
 }
 
 /* swal design finish */
+.menu-icon-response{
+  display: none;
+}
+.big-Container{
+  display: flex;
+  width: 100%;
+}
+
+/* responsive style website */
+
+@media screen and (max-width : 775px){
+
+  .big-Container{
+    display: block ;
+    /* margin-top: 9rem; */
+  }
+  .menu-bar{
+    width: 100%;
+    position: relative;
+    height: 7rem;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 10px #adb5bd;
+    z-index: 2;
+  }
+
+  .menu-bar__header {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+
+}
+.myImage {
+  width: 7rem;
+    margin: 2rem;
+    height: 4rem;
+}
+.menu-icon-response{
+  display: flex;
+  font-size: 2.2rem;
+  margin: 1.5rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.menu-bar__header-list {
+  padding-right: 3.1rem;
+  font-family: yekan;
+  display: none;
+}
+
+.menu-icon-response:active{
+  background-color: rgba(76, 99, 217, 0.484);
+  border-radius: 0.4rem;
+  color: white;
+}
+.menu-icon-response:active .menu-bar__header-list{
+  display: block;
+  position: absolute;
+}
+.activeResponsiveMenu{
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 6rem;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 0 10px #625757;
+  border-radius: 0.5rem;
+}
+.myAccount-page {
+  z-index: 103;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+.ifElseForInput-register-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'yekan';
+  /* margin-left: 2rem; */
+  margin-top: 2rem;
+}
+.ifElseForInput-register-box h1 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+}
+
+@media screen and (max-width : 450px){
+
+  .login-link{
+    font-size: 0.85rem;
+    line-height: 1.6rem;
+  }
+}

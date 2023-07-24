@@ -2,18 +2,22 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js">
     <link rel="stylesheet" href="vendor/Bootstrap/bootstrap.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style css/reset.css">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet" /> -->
-    <link rel="stylesheet" href="style css/login.css">
-    <title>Login Page</title>
+    <link rel="stylesheet" href="style css/basketShop.css">
+    <title>Basket-Shop-Page</title>
 </head>
 <body>
-    <header class="big-Container">
+    
+
+    <div class="big-Container">
+        
         <div class="menu-bar">
             <div class="menu-bar__header">
                 <img class="myImage" src="image/17+.jpg" alt="" srcset="">
@@ -46,42 +50,56 @@
             </div>
         </div>
 
-        
-        <div class="myAccount-page">
-            <div class="myAccount-page-container">
-                <div class="myAccount-title">
-                    <span class="myAccount-title-text">حساب کاربری من</span>
-                </div>
-                <div class="myAccount-login-box">
-                    <h1 class="myAccount-login-box-title">ورود</h1>
-                    <div class="myAccount-login-box-input-phone">
-                        <p class="myAccount-login-box-paragraph">لطفا شماره موبایل خود را وارد کنید</p>
-                        <input class="myAccount-login-box-input text-input" type="text">
-                        <!-- <p class="myAccount-login-box-alert">اشتباه می باشد</p> -->
-                    </div>
-                    <div class="myAccount-login-box-input-password">
-                        <p class="myAccount-login-box-paragraph">لطفا گذرواژه خود را وارد کنید</p>
-                        <div style="position: relative;" class="d-flex">
-                            <input class="myAccount-login-box-input password-input" type="password" >
-                            <i class="eye-icon-active fas fa-eye"></i>
-                        </div>
-                        <!-- <p class="myAccount-login-box-alert">اشتباه است</p> -->
-                    </div>
-                    <button class="myAccount-login-box-button">ورود</button>
-                    <p class="register-link">اگر قبلا ثبت نام نکردید روی کلمه <a style="color: #0d6efd;" href="register.html">ثبت نام  </a>کلیک کنید </p>
-                </div>
+        <div class="basketShopping-container">
+            <div class="basketShopping-product-description-rightBox">
+                <table class="tableShoppingListWrapper">
+                    <thead style="text-align: center " >
+                        <th class="product-description-rightBox-image-text">تصویر</th>
+                        <th class="product-description-rightBox-title-text">عنوان</th>
+                        <th class="product-description-rightBox-price-text">قیمت</th>
+                        <th class="product-description-rightBox-delete-text">حذف</th>
+                    </thead>
+                    <tbody class="tBodyShoppingListWrapper" style="text-align: center ">
 
-                <div class="myAccount-register-box">
-                   
+                    </tbody>
+                    <!-- loaded from js -->
+                </table>
+
+            </div>
+            <div class="basketShopping-product-pay-leftBox">
+
+                <!-- <div class="basketShopping-product-pay-leftBox-titleBox">
+                    <h1 class="pay-leftBox-title">فاکتور خرید</h1>
                 </div>
+                <div class="basketShopping-product-pay-leftBox-bonBox">
+                    <p class="pay-leftBox-bon">بن خرید :</p>
+                    <p class="pay-leftBox-bon-des">ندارید</p>
+                </div>
+                <div class="basketShopping-product-pay-leftBox-priceBox">
+                    <p class="pay-leftBox-price-text">مجموع خرید : </p>
+                    <p class="pay-leftBox--price">20000 تومان</p>
+                </div>
+                <div class="basketShopping-product-pay-leftBox-deliverBox">
+                    <p class="pay-leftBox-deliver-title">هزینه ارسال :</p>
+                    <p class="pay-leftBox-deliver-subTitle">رایگان</p>
+                </div>
+                <div class="basketShopping-product-pay-leftBox-totalPriceBox">
+                    <p class="pay-leftBox-total-price-text">جمع کل خرید :</p>
+                    <p class="pay-leftBox-total-priceNumber">20000 تومان</p>
+                </div>
+                <div>
+                    <a href="">
+                        <button class="pay-leftBox-btn">تایید و پرداخت</button>
+                    </a>
+                </div> -->
+
             </div>
         </div>
-    </header>
 
-  
+    </div>
+
     <!-- <script type="module" src="spa.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="login.js"></script>
+    <script src="basketShop.js"></script>
 </body>
 </html>
